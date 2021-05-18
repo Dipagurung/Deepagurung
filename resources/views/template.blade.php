@@ -8,6 +8,11 @@
     
 </head>
 <body>
+     <ul>
+       <li><a href="{{ route('getHomePage') }}">Home</a></li>
+       <li><a href="{{ route('getAboutPage') }}">About</a></li>
+       <li><a href="{{ route('getHobbiesPage') }}">Hobbies</a></li>
+     </ul>
     @yield('content')
 </body>
 </html>
