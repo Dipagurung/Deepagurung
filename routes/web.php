@@ -18,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\PageController@getHomePage')->name('getHomePage');
 Route::get('/about-myself', 'App\Http\Controllers\PageController@getAboutPage')->name('getAboutPage');
 Route::get('/my-hobbies', 'App\Http\Controllers\PageController@getHobbiesPage')->name('getHobbiesPage');
+
+Route::get('adduser','App\Http\Controllers\UserController@addUser')->name('addUser');
+Route::post('createuser','App\Http\Controllers\UserController@createUser')->name('createUser');
