@@ -21,3 +21,9 @@ Route::get('/my-hobbies', 'App\Http\Controllers\PageController@getHobbiesPage')-
 
 Route::get('adduser','App\Http\Controllers\UserController@addUser')->name('addUser');
 Route::post('createuser','App\Http\Controllers\UserController@createUser')->name('createUser');
+
+Route::get('addpost','App\Http\Controllers\PostController@addPost')->name('addPost');
+Route::post('createpost','App\Http\Controllers\PostController@createPost')->name('createPost');
+Route::get('listposts','App\Http\Controllers\PostController@listPost')->name('listPost');
+ Route::get('deletepost/{post}','App\Http\Controllers\PostController@deletePost')->name('deletePost');
+
