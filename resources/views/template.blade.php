@@ -11,8 +11,15 @@
    <div class="container">
    <ul>
        <li><a href="{{ route('getHomePage') }}">Home</a></li>
+       <li><a href="{{ route('getProfile') }}">Profile</a></li>
        <li><a href="{{ route('getAboutPage') }}">About</a></li>
        <li><a href="{{ route('getHobbiesPage') }}">Hobbies</a></li>
+       <li><a href="{{ route('listPost') }}">List Post</a></li>
+       <li><a href="{{ route('listUser') }}">List User</a></li>
+       <li><a href="{{ route('listStory') }}">List Story</a></li>
+       <li><a href="{{ route('getLogin') }}">Login</a></li>
+       <li><a href="{{ route('getLogout') }}">Logout</a></li>
+      
      </ul>
     @yield('content')
    </div>
