@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App;
+use App\Http\Requests\PostAddRequest;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -11,7 +12,7 @@ class PostController extends Controller
         return view('post.add',$data);
     }
 
-    public function createPost(Request $request){
+    public function createPost(PostAddRequest $request){
      $post=new App\Models\Post;
      $post->user_id=$request->get('user_id');
      $post->body= $request->get('body');

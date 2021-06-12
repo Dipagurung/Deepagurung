@@ -14,11 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
+/*----------PAGE CONTROLLER------*/
 Route::get('/', 'App\Http\Controllers\PageController@getHomePage')->name('getHomePage');
 Route::get('/about-myself', 'App\Http\Controllers\PageController@getAboutPage')->name('getAboutPage');
 Route::get('/my-hobbies', 'App\Http\Controllers\PageController@getHobbiesPage')->name('getHobbiesPage');
 
+/*---------USER CONTROLLER---------*/
 Route::group(['middleware'=>'auth'], function(){
     Route::get('adduser','App\Http\Controllers\UserController@addUser')->name('addUser');
 Route::post('createuser','App\Http\Controllers\UserController@createUser')->name('createUser');
@@ -27,6 +28,7 @@ Route::get('deleteuser/{user}','App\Http\Controllers\UserController@deleteUser')
 Route::get('edituser/{user}','App\Http\Controllers\UserController@editUser')->name('editUser');
 Route::post('updateuser/{user}','App\Http\Controllers\UserController@updateUser')->name('updateUser');
 
+/*------------POST CONTROLLER--------*/
 Route::get('addpost','App\Http\Controllers\PostController@addPost')->name('addPost');
 Route::post('createpost','App\Http\Controllers\PostController@createPost')->name('createPost');
 Route::get('listposts','App\Http\Controllers\PostController@listPost')->name('listPost');
@@ -35,6 +37,7 @@ Route::get('deletepost/{post}','App\Http\Controllers\PostController@deletePost')
 Route::get('editpost/{post}','App\Http\Controllers\PostController@editPost')->name('editPost');
 Route::post('updatepost/{post}','App\Http\Controllers\PostController@updatePost')->name('updatePost');
 
+/*-------------STORY CONTROLLER----------*/
 Route::get('addstory','App\Http\Controllers\StoryController@addStory')->name('addStory');
 Route::post('createstory','App\Http\Controllers\StoryController@createStory')->name('createStory');
 Route::get('liststories','App\Http\Controllers\StoryController@listStory')->name('listStory');

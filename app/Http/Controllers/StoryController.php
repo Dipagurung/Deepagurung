@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App;
+use App\Http\Requests\StoryAddRequest;
 use Illuminate\Http\Request;
 
 class StoryController extends Controller
@@ -10,7 +11,7 @@ class StoryController extends Controller
         $data['users']=$users->get();
         return view('story.add',$data);
     }
-    public function createStory(Request $request){
+    public function createStory(StoryAddRequest $request){
         $story=new App\Models\Story;
         $story->user_id=$request->get('user_id');
         $story->body= $request->get('body');
@@ -34,7 +35,7 @@ class StoryController extends Controller
         return view('story.edit',$data);
     }
 
-       public function updateStory(App\Models\Story $story, Request $request){
+       public function updateStory(App\Models\Story $story, StoryAddRequest $request){
            $story->user_id=$request->get('user_id');
            $story->body=$request->get('body');
            $story->save();

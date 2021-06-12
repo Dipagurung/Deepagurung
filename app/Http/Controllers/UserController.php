@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App;
 use Auth;
 use Hash;
+use App\Http\Requests\UserAddRequest;
+use App\Http\Requests\UserEditRequest;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -12,13 +14,13 @@ class UserController extends Controller
         return view('user.add');
     }
 
-    public function createUser(Request $request){
+    public function createUser(UserAddRequest $request){
      $user=new App\Models\User;
      $user->name= $request->get('name');
      $user->email= $request->get('email');
      $user->password= Hash::make($request->get('password'));
      $user->save(); 
-     return "Thankyou " .$request->get('name')." for filling up the form";
+     return redirect()->route('listUser');
     }
 
     public function listUser(App\Models\User $users){
@@ -34,7 +36,7 @@ class UserController extends Controller
         return view('user.edit',$data);
     }
 
-    public function updateUser(App\Models\User $user, Request $request){
+    public function updateUser(App\Models\User $user, UserEditRequest $request){
         $user->name=$request->get('name');
         $user->email=$request->get('email');
         $user->password=Hash::make($request->get('password'));
